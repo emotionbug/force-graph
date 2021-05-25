@@ -6,7 +6,7 @@ import {
   forceRadial as d3ForceRadial
 } from 'd3-force-3d';
 
-import { Bezier } from 'bezier-js';
+import Bezier from 'bezier-js';
 
 import Kapsule from 'kapsule';
 import accessorFn from 'accessor-fn';
@@ -225,11 +225,11 @@ export default Kapsule({
                 const start = link.source;
                 const end = link.target;
                 if (!start || !end || !start.hasOwnProperty('x') || !end.hasOwnProperty('x')) return; // skip invalid link
-  
+
                 ctx.moveTo(start.x, start.y);
-  
+
                 const controlPoints = link.__controlPoints;
-  
+
                 if (!controlPoints) { // Straight line
                   ctx.lineTo(end.x, end.y);
                 } else {
